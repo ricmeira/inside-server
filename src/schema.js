@@ -8,9 +8,11 @@ import user from './model/user/schema';
 const schema = `
   ${user}
 
-  type Token {
+  type Session {
     token: String,
-    error: String
+    error: String,
+    email: String,
+    name: String
   }
 
   # the schema allows the following query:
@@ -19,8 +21,8 @@ const schema = `
   }
   # this schema allows the following mutation:
   type Mutation {
-    RegisterEmail (name: String, email: String, password: String): Token,
-    LoginEmail (email: String, password: String): Token,
+    RegisterEmail (name: String, email: String, password: String): Session,
+    LoginEmail (email: String, password: String): Session,
   }
 `;
 

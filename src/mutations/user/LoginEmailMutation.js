@@ -9,6 +9,8 @@ const LoginEmailMutation = async (root, args) => {
     return {
       token: null,
       error: 'INVALID_EMAIL_PASSWORD',
+      email: null,
+      name: null,
     };
   }
 
@@ -18,12 +20,16 @@ const LoginEmailMutation = async (root, args) => {
     return {
       token: null,
       error: 'INVALID_EMAIL_PASSWORD',
+      email: null,
+      name: null,
     };
   }
 
   return {
     token: generateToken(user),
     error: null,
+    email: user.email,
+    name: user.name,
   };
 };
 
